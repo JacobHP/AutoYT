@@ -1,0 +1,16 @@
+{
+    "snippet": {
+
+        "categoryI": 19,
+        "title": "Test_title",
+        "description": "AutoReddit collates the best comments from the hottest posts on Reddit. Make sure to like and subscribe for more! \n\n Track Name: 'INSERT TRACK NAME HERE' \n\n Music By: LAKEY INSPIRED @ https://soundcloud.com/lakeyinspired \n\n Official 'LAKEY INSPIRED' YouTube Channel HERE - https://www.youtube.com/channel/UCOmy",
+        "tags": ["askreddit", "reddit", "tts", "text-to-speech", "text2speech", "funny", "comments"]
+    },
+    "status": {
+        "privacyStatus": "private",
+        "selfDeclaredMadeForKids": "False"
+    },
+    "notifySubscribers": "True",
+    "onBehalfOfContentOwnerChannel": "AutoReddit"
+    
+}

@@ -6,6 +6,18 @@ __pycache__/
 # C extensions
 *.so
 
+# Project specific folders
+data/audio/
+data/credentials/
+data/csvs/
+data/fonts/noto-sans/
+data/images/
+data/movies/
+data/music/
+
+
+
+
 # Distribution / packaging
 .Python
 build/
