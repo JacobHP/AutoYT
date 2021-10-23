@@ -15,4 +15,4 @@ The pipeline is built using Python, and in particular, PIL, MoviePy and the Yout
 
 * Folder structure - todo
 
-
+* Requirements - todo
