@@ -6,5 +6,6 @@
     "intro_subreddit" : {"color" : [215,218,220], "position":[240,280], "font_loc": "data/fonts/noto-sans/NotoSans-Bold.ttf", "font_size": 32, "width":100},
     "intro_points" : {"color" : [129,131,132], "position":[440,280], "font_loc": "data/fonts/noto-sans/NotoSans-Regular.ttf", "font_size": 32, "width":100},
     "intro_author" : {"color" : [129,131,132], "position":[440,280], "font_loc": "data/fonts/noto-sans/NotoSans-Regular.ttf", "font_size": 32, "width":100},
-    "intro_body" : {"color" : [215,218,220], "position":[180,380], "font_loc": "data/fonts/noto-sans/NotoSans-Regular.ttf", "font_size": 58, "width":60}
+    "intro_body" : {"color" : [215,218,220], "position":[180,380], "font_loc": "data/fonts/noto-sans/NotoSans-Regular.ttf", "font_size": 58, "width":60},
+    "thumbnail" : {"color" : [252,124,0], "position" : [800, 100], "font_loc": "data/fonts/noto-sans/impact/impact.ttf", "font_size":100, "width": 20}
 }

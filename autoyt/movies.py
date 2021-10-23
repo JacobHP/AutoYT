@@ -1,12 +1,20 @@
 '''
 Author: Jacob Howard-Parker
 
-Functions for creating simple slide show videos
+Functions for creating simple slide show videos using MoviePy
 '''
+
 import moviepy.editor as mpe
-from pydub import AudioSegment
-import pandas as pd
-import os
+
+def read_video(video):
+    '''
+    Simple function to read in a local videoclip
+    video should be path to clip
+    '''
+
+    clip = mpe.VideoFileClip(video)
+    return clip
+
 
 
 def create_slide(image, audio, duration=None, lag=0.5):
@@ -17,14 +25,13 @@ def create_slide(image, audio, duration=None, lag=0.5):
         sound = mpe.AudioFileClip(audio)
         audio_length = sound.duration
         clip = mpe.ImageClip(image, duration=audio_length+(2*lag))
-        clip_final = clip.set_audio(mpe.CompositeAudioClip([sound.set_start(lag)]))
+        clip_final = clip.set_audio(mpe.CompositeAudioClip(
+                                    [sound.set_start(lag)]))
     else:
         clip_final = mpe.ImageClip(image, duration=duration)
     return clip_final
 
-def read_video(video):
-    clip = mpe.VideoFileClip(video)
-    return clip
+
 
 def create_slide_movie(slide_list, backing_audio):
     '''
@@ -45,12 +52,8 @@ def create_slide_movie(slide_list, backing_audio):
     
     final_audio = mpe.CompositeAudioClip([movie.audio.volumex(1),
             background.volumex(0.2).audio_fadein(10).audio_fadeout(10)])
-
+    # should put more of these as function arguments
     final_audio.fps = 44100
     movie = movie.set_audio(final_audio)
     return movie
-
-
-
-# probably keep these as is as quite good
 

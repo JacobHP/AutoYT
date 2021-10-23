@@ -9,10 +9,11 @@ import pyttsx3
 import os
 import pandas as pd
 
-def read_comment(comment, output_dir, rate=225 ):
+def read_comment(comment, output_dir, rate=225):
     '''
-    Inputs:
-    Outputs:
+    Convert a comment to speech
+    Inputs: comment string, output filename dir string, integer rate
+    Outputs: None. Saves mp3 file to output filename
     '''
     engine = pyttsx3.init()
     engine.setProperty('rate', rate)
@@ -21,11 +22,11 @@ def read_comment(comment, output_dir, rate=225 ):
 
 def read_comment_list(comment_list, output_dir):
     '''
-    Inputs:
-    Outputs
+    Convert list of comments to speech
+    Inputs: list of comments, output filename
+    Outputs: None, saves mp3s to output filename + index based
+            on list index
     '''
     for idx in range(len(comment_list)):
         read_comment(comment_list[idx], output_dir+f'_{idx}')
     
-if __name__ == '__main__':
-    read_comment(None, None)
