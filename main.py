@@ -29,7 +29,7 @@ def run_pipeline(subreddit, thumbnail_color=(252,124,0), upload=False,
     post_title = posts.iloc[0].title
     post_author = posts.iloc[0].author
     comments_df = scrape_top_comments(post_url, credentials, 
-                                    top_limit = 5, child_limit=0)
+                                    top_limit = 10, child_limit=0)
     print('...Reddit scrape complete.')
 
     print('Cleaning data..')
@@ -43,19 +43,14 @@ def run_pipeline(subreddit, thumbnail_color=(252,124,0), upload=False,
         os.mkdir(f'data/audio/{post_title}')
 
     print('Creating audio and images..')
-    format_dict = {'author': {'color':(79,188,255), 'position':(240,270), 'font_loc':'data/fonts/noto-sans/NotoSans-Light.ttf', 'font_size':24,'width':100},
-                'points': {'color':(129,131,132), 'position':(240, 270), 'font_loc':'data/fonts/noto-sans/NotoSans-Light.ttf', 'font_size':24,'width':100}, # to add
-                'body': {'color':(215, 218, 220), 'position':(240, 315), 'font_loc':'data/fonts/noto-sans/NotoSans-Light.ttf', 'font_size':28,'width':100},
-                'body_second': {'color':(215, 218, 220), 'position':(240, 270), 'font_loc':'data/fonts/noto-sans/NotoSans-Light.ttf', 'font_size':28,'width':100},
-                "intro_subreddit" : {"color" : (215,218,220), "position":(240,280), "font_loc": "data/fonts/noto-sans/NotoSans-Bold.ttf", "font_size": 32, "width":100},
-    "intro_points" : {"color" : (129,131,132), "position":(440,280), "font_loc": "data/fonts/noto-sans/NotoSans-Regular.ttf", "font_size": 32, "width":100},
-    "intro_author" : {"color" : (129,131,132), "position":(440,280), "font_loc": "data/fonts/noto-sans/NotoSans-Regular.ttf", "font_size": 32, "width":100},
-    "intro_body" : {"color" : (215,218,220), "position":(180,380), "font_loc": "data/fonts/noto-sans/NotoSans-Regular.ttf", "font_size": 58, "width":60},
-    "thumbnail" : {"color" : (252,124,0), "position" : (800, 100), "font_loc": "data/fonts/noto-sans/impact/impact.ttf", "font_size":100, "width": 20}
-               
-               
-                } # put this into json
-    
+   
+    with open('data/templates/image_configuration.json') as f:
+        format_dict = json.load(f)
+    for key in list(format_dict):
+        for inner_key in format_dict[key]:
+            if type(format_dict[key][inner_key])==list:
+                format_dict[key][inner_key] = tuple(format_dict[key][inner_key])
+
     intro_img = create_intro_image(post_author, 1, subreddit, body=post_title, 
                                 text_args_dict = format_dict, 
                                 template='data/templates/intro_base.jpeg')
@@ -154,9 +149,5 @@ def run_pipeline(subreddit, thumbnail_color=(252,124,0), upload=False,
 
 if __name__ == '__main__':
 
-
     run_pipeline('AskReddit', upload=False, delete_files=True)
-
-    # todo
-    # Create jsons for slide, intro, outro
     
