@@ -14,6 +14,11 @@ AutoYT scrapes Reddit comments/posts, cleans these, converts them to speech, gen
 
 Scraper &rarr; Cleaner &rarr; Text-to-Speech &rarr; Images &rarr; Movies &rarr; Youtube
 
+#### Example Output
+
+https://www.youtube.com/watch?v=YRujNRZYsFA&t=22s
+
+
 #### Modules
 * scraper - *todo*
 
