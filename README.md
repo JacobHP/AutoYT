@@ -8,11 +8,65 @@ The top comments are scraped from popular subreddit posts, processed through tex
 
 The pipeline is built using Python, and in particular, PIL, MoviePy and the Youtube Data API on GCP.s
 
+#### Overview
 
-* Diagram - todo
+AutoYT scrapes Reddit comments/posts, cleans these, converts them to speech, generates images of comments/posts with Reddit themes, generates a video of comments being read out and pushes this to youtube.
 
-* Files - todo
+Scraper &rarr; Cleaner &rarr; Text-to-Speech &rarr; Images &rarr; Movies &rarr; Youtube
 
+#### Modules
+* scraper - *todo*
+
+* cleaner - *todo*
+
+* tts - *todo*
+
+* images - *todo*
+
+* movies - *todo*
+
+* youtube - *todo*
+
+#### Folder Structure and Templates
 * Folder structure - todo
 
-* Requirements - In addition to packages in requirements.txt #todo
+```
+AutoYT
+│   README.md
+│   .gitignore
+│   LICENSE
+│   requirements.txt
+│   main.py (example pipeline)
+│
+└───autoyt
+│   │   __init__.py
+│   │   scraper.py
+│   │   cleaner.py
+│   │   tts.py
+│   │   images.py
+│   │   movies.py
+│   │   youtube.py
+│   
+└─── data
+│   └───templates
+│   └───audio
+│   └───images
+│   └───movies
+│   └───music
+│   └───fonts
+│   └───credentials
+│       │   client_secret.json
+│       │   credentials.json
+│   └───templates
+│       │   description.yaml
+│       │   image_configuration.json
+│       │   intro_base.jpeg
+│       │   outro.jpeg
+│       │   static.mp4
+│       │   thumbnail_template.jpeg
+│       │   youtube_request.json
+```
+
+
+#### Additional Requirements
+* Requirements - In addition to packages in requirements.txt *TODO*
